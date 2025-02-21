@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="text-align: center;">
+    <div style="display: flex; text-align: center;">
+        <button style="padding: 10px; width: 55px; height: 50px; margin: 10px;" onclick="back()">
+            < </button>
+                <div class="imagesh">
+                    <img src="img/download.jpeg" class="slide" alt="">
+
+                </div>
+                <button style="padding: 10px; width: 55px; height: 50px; margin: 10px;" onclick="next()"> > </button>
+
+    </div>
+    <script>
+        let imgesh = ["img/download.jpeg", "img/download (1).jpeg", "img/download (3).jpeg", "img/download (4).jpeg"]
+
+        let count = 0;
+
+        let slide = document.querySelector(".slide");
+
+        function next() {
+            slide.src = imgesh[count]
+            count++;
+
+        }
+
+        function back() {
+            slide.src = imgesh[count]
+            count--;
+        }
+
+    </script>
+
+</body>
+
+</html>

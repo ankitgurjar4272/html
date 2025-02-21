@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+        <div>
+            <input type="text">
+            <button>Add</button>
+        </div>
+        <div>
+            <ul></ul>
+        </div>
+
+    </div>
+
+
+    <script>
+        let input = document.querySelector("input")
+        let btn = document.querySelector("button")
+        let ul = document.querySelector("ul")
+
+        btn.addEventListener("click", function welcome() {
+            let list = document.createElement("li")
+            list.innerText = input.value
+            ul.appendChild(list)
+            list.addEventListener("click", () => {
+                list.remove()
+            })
+            input.value ""
+        }
+        )
+
+
+    </script>
+
+</body>
+
+</html>
