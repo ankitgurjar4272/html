@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data Fetch</title>
+</head>
+<body>
+
+    <button id="fetchButton" style="padding: 10px 20px; background-color: black; color: aliceblue;">
+        Click Here
+    </button>
+    <h2>User Information</h2>
+    <div id="userContainer" style="margin-top: 20px; font-family: Arial, sans-serif;"></div>
+
+    <script>
+        async function fetchingData() {
+             try {
+                let response = await fetch("https://randomuser.me/api/?results=10");
+                let data = await response.json();
+                let user = data.results[0];
+
+                document.getElementById("userContainer").innerHTML = `
+                    
+                    <img src="${user.picture.large}" alt="" style="border-radius: 50%;">
+                    <p><strong>Name: ${user.name.title} ${user.name.first} ${user.name.last}</p>
+                    <p>Email: ${user.email}</p>
+                    <p>Location: ${user.location.city}, ${user.location.country}</p>
+                `;
+            } catch (error) {
+                document.getElementById("userContainer").innerHTML = "<p style='color: red;'>Failed to fetch data.</p>";
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        document.getElementById("fetchButton").addEventListener("click", fetchingData);
+    </script>
+
+</body>
+</html>

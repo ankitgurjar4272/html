@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timeNow</title>
+</head>
+
+<body>
+<p></p>
+
+    <script>
+        let count = "lorem"
+        setInterval(()=>{
+            let time = new Date()
+            let now = time.toLocaleTimeString()
+            let p = document.querySelector("p")
+            p.innerHTML = now +" " + count
+
+        }, 1000)
+
+    </script>
+
+</body>
+
+</html>

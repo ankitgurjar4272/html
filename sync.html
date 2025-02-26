@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="stopPrint()">Stop</button>
+
+
+    <script>
+ let printName = setTimeout(()=>{
+    let h2 = document.createElement("h2")
+    h2.innerHTML = "ankit"
+    document.body.append(h2)
+ }, 5000)
+
+function stopPrint(){
+   clearTimeout(printName)
+   console.log("Hello Anlit This Pragrap in Stop");
+   
+}
+// let stopint = setInterval(()=>{
+//     let h2 = document.createElement("h2")
+//     h2.innerHTML = "ankit"
+//     document.body.append(h2)
+//  }, 2000)
+//  function stopPrint(){
+//    clearInterval(stopint)
+//    console.log("h");
+   
+//  }
+    </script>
+</body>
+</html>
