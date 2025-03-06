@@ -1,8 +1,9 @@
 
-fetch("https://randomuser.me/api/?results=10")
+fetch("https://randomuser.me/api/?results=500")
 .then((result) => {
 return result.json()
-}).then((res) => {
+})
+.then((res) => {
     console.log(res)
     
 })

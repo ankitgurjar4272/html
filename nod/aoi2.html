@@ -1,27 +1,110 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        img{
+            border-radius: 22px;
+        }
+        div{
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+            width: 500px;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <button>Random User</button>
+
 
     <script>
 
-        fetch("https://randomuser.me/api/?results=500")
+        let btn = document.querySelector("button")
+        btn.addEventListener("click", feachingDatabtn)
+//         async function feachingData() {
+//             try {
+//                 let result = await fetch("https://randomuser.me/api/?results=20");
+//                 let data = await result.json();
+//                 let users = data.results
+//                 console.log(users);
 
-            .then((result) => {
-                return result.json()
-            })
-            .then((res) => {
-                console.log(res)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+// users.map((user) =>{
+//     let div = document.createElement("div");
+//                 document.body.appendChild(div)
+                
+//                 let img = document.createElement("img")
+//                 img.setAttribute("src", user.picture.medium)
+//                 div.appendChild(img)
+
+//                 let p = document.createElement("p")
+//                 p.innerHTML = `Name: ${user.name.first} ${user.name.last}`;
+//                 div.appendChild(p);
+
+//                 let secp = document.createElement("p")
+//                 secp.innerHTML = `Gender: ${user.gender}`;
+//                 div.appendChild(secp)
+
+// })
+              
+//             } catch (error) {
+//                 console.log(error);
+                
+//             }
+// }
+
+
+function feachingDatabtn(){
+    let users = []
+fetch("https://randomuser.me/api/?results=20")
+.then((result) =>{
+    return result.json()
+})
+.then((data)=>{
+  let users = [...data.results]   
+feachingData(users)
+   
+})
+
+.catch((error)=>{
+    console.log(error)
+    
+})
+}
+
+function feachingData(users){
+    
+users.map((user) =>{
+    let div = document.createElement("div");
+                document.body.appendChild(div)
+                
+                let img = document.createElement("img")
+                img.setAttribute("src", user.picture.medium)
+                div.appendChild(img)
+
+                let p = document.createElement("p")
+                p.innerHTML = `Name: ${user.name.first} ${user.name.last}`;
+                div.appendChild(p);
+
+                let e = document.createElement("e")
+                e.innerHTML = `Email:: ${user.email}`;
+                div.appendChild(e);
+
+                let secp = document.createElement("p")
+                secp.innerHTML = `Gender: ${user.gender}`;
+                div.appendChild(secp)
+
+})
+}
+           
     </script>
 
 
 </body>
+
 </html>
